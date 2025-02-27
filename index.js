@@ -2,7 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import path, { join } from "path";
 import connectToMongo from "./Database/db.js";
-import authRoute from "./Routes/authRoute.js"
+import authRoute from "./Routes/authRoute.js";
+import contactRoute from "./Routes/contactRoute.js";
 import cors from "cors";
 dotenv.config();
 
@@ -17,9 +18,9 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 const __dirname = path.resolve();
 app.set("views", path.join(__dirname, "Views"));
-app.use("/auth",authRoute)
+app.use("/auth",authRoute);
 app.use(express.static(path.join(__dirname,"public")));
-
+app.use("/",contactRoute);
 app.get("/", (req, res) => {
   res.render("index");
 });
