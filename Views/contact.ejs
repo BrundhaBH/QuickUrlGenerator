@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        /* Basic styling for form and footer */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .contact-form {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .contact-form input {
+            margin-bottom: 10px;
+            padding: 10px;
+            width: 30%;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #00bcd4;
+            color: white;
+        }
+
+        .footer div {
+            display: inline-block;
+            width: 30%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <%-include("footer")-%>
+    <div class="contact-form">
+        <h2>Contact Us</h2>
+        <p>Any questions or remarks? Just write us a message!</p>
+
+        <form id="contactForm">
+            <input type="email" id="email" placeholder="Enter a valid email address" required><br>
+            <input type="text" id="name" placeholder="Enter your Name" required><br>
+            <input type="text" id="remarks" placeholder="Remarks"><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <div>
+            <h3>ABOUT QUICK URL GENERATOR</h3>
+            <p>URL Shortener Service<br>Quick Service</p>
+        </div>
+        <div>
+            <h3>PHONE (LANDLINE)</h3>
+            <p>+91 8970685493<br>+91 9128950486</p>
+        </div>
+        <div>
+            <h3>OUR OFFICE LOCATION</h3>
+            <p>The Design Craft<br>#210, 4th main, KR Road, VV Puram, Bangalore-560004</p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle form submission and show the pop-up
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevents the form from submitting
+            alert('Thank you for your response!');
+        });
+    </script>
+
+</body>
+</html>
