@@ -34,6 +34,14 @@ app.get("/contact",(req ,res)=>{
     }
 });
 
+app.get("/aboutus",(req ,res)=>{
+  try{
+    res.render("aboutus");
+    }
+    catch(err){
+    console.log(err)
+    }
+});
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port 127.0.0.1:${process.env.PORT}`);
 });

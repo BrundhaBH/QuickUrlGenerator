@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - URL Shortener</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: white;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #666;
+    }
+
+    .team {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .team-member {
+      text-align: center;
+    }
+
+    .team-member img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #333;
+      color: white;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+    <%-include("nav")-%>
+  <header>
+    <h1>About Us</h1>
+  </header>
+
+  <div class="container">
+    <h2>Who We Are</h2>
+    <p>
+      Welcome to our URL Shortener project! We aim to make sharing links quick, easy, and efficient. Our goal is to help you manage and share your long URLs by converting them into short, manageable links.
+    </p>
+
+    <h2>Our Mission</h2>
+    <p>
+      Our mission is to provide a reliable and fast service for shortening URLs while maintaining ease of use. We are constantly improving the performance and features of our tool to make sure it meets the demands of our users.
+    </p>
+
+    <h2>Meet the Team</h2>
+    <div class="team">
+      <div class="team-member">
+        <img src="https://via.placeholder.com/100" alt="Team Member">
+        <h3>John Doe</h3>
+        <p>Founder & Developer</p>
+      </div>
+      <div class="team-member">
+        <img src="https://via.placeholder.com/100" alt="Team Member">
+        <h3>Jane Smith</h3>
+        <p>UI/UX Designer</p>
+      </div>
+    </div>
+  </div>
+<footer>
+    <p>&copy; 2025 URL Shortener Project. All rights reserved.</p>
+  </footer>
+</body>
+</html>
