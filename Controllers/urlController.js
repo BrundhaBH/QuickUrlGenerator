@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 import URL from "../Database/Models/URL.js";
-import Analytics from "../Database/models/Analytics.js";
+import Analytics from "../Database/Models/Analytics.js";
 
 
 export const shortenURL = async (req, res) => {

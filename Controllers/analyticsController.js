@@ -1,4 +1,4 @@
-import Analytics from "../Database/models/Analytics.js";
+import Analytics from "../Database/Models/Analytics.js";
 import URL from "../Database/Models/URL.js";
 
 export const getAnalytics = async (req, res) => {

@@ -1,7 +1,7 @@
 import express from "express";
-import User from "../Database/models/User.js";
 import  URL from "../Database/Models/URL.js";
-import authMiddleware from "../middlewares/middleware.js";
+import User from "../Database/Models/user.js";
+import authMiddleware from "../Middlewares/middleware.js";
 const router = express.Router();
 
 router.get("/page/profile",(req,res)=>{
