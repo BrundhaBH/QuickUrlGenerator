@@ -90,7 +90,7 @@ export const redirectURL = async (req, res) => {
     });
 
     await analytics.save();
-
+console.log("hello")
     res.status(302).redirect(url.url);
   } catch (e) {
     console.log(e);
