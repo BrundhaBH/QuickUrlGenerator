@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Features - Quick URL Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .feature-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: #6a11cb;
+        }
+        .card {
+            border: none;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <%-include("nav")-%>
+    
+    <!-- Features Section -->
+    <div class="container feature-section" id="features">
+        <h2 class="text-center mb-4">Our Features</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <div class="feature-icon">🚀</div>
+                    <h4>Instant Shortening</h4>
+                    <p>Generate short links quickly with a single click.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <div class="feature-icon">🔗</div>
+                    <h4>Custom URL Aliases</h4>
+                    <p>Create personalized short links for better branding.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <div class="feature-icon">📊</div>
+                    <h4>Analytics & Tracking</h4>
+                    <p>Monitor link performance with real-time insights.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row text-center mt-4">
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <div class="feature-icon">🔒</div>
+                    <h4>Secure Links</h4>
+                    <p>Ensure privacy and protection for your shortened URLs.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <div class="feature-icon">🌍</div>
+                    <h4>Global Reach</h4>
+                    <p>Accessible from anywhere with cloud-based infrastructure.</p>
+                </div>
+            </div>
+            <div class="col-md-4"  style="height:50vh">
+                <div class="card p-4">
+                    <div class="feature-icon">⚡</div>
+                    <h4>QR Code Generation</h4>
+                    <p>Instantly create QR codes for your short links.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <%-include("footer")-%>
+</body>
+</html>

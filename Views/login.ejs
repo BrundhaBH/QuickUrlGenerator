@@ -13,19 +13,21 @@
     />
   </head>
   <body>
-  <%- include('nav')-%>
-  <%-include("footer")-%>
-    <main class="form-signin w-100 m-auto p-4 rounded-3">
+  <%-include('nav')-%>
+  
+  >
+    <main class="form-signin w-100 m-auto p-4 rounded-3" style="height:80vh">
       <form class="w-50 m-auto d-flex flex-column gap-2" onsubmit="doLogin(event); return false;">
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
+<div id="alert"></div>
         <div class="form-floating">
           <input
             type="email"
             class="form-control"
             id="email"
             placeholder="name@example.com"
-            fdprocessedid="4i4zra"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            title="Please enter a valid email address"
             required
           />
           <label for="email">Email address</label>
@@ -36,7 +38,8 @@
             class="form-control"
             id="password"
             placeholder="Password"
-            fdprocessedid="co1ms"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Password must contain at least one number, one uppercase and lowercase letter, and at least 8 or more characters"
             required
           />
           <label for="password">Password</label>
@@ -55,6 +58,10 @@
       </form>
     </main>
     <script>
+      // const token = localStorage.getItem("token");
+      if (token) {
+        window.location.href = "/";
+      }
       const doLogin = async (event) => {
         try {
           event.preventDefault();
@@ -70,9 +77,29 @@
           const data = await response.json();
           if (data.user) {
             console.log("Login Success");
-            console.log(data)
+            localStorage.setItem("token", data.token);
+            // Redirect to home page after successful login
+            document.getElementById("alert").innerHTML = `
+             <%- include('Alert/alert', {
+                                alertType: 'success',
+                                alertMessage: 'Login Successful',
+                                isDismissible: true
+                            }) %> `;
+            setTimeout(() => {
+              window.location.href = "/";
+            },2000)
           } else {
+            document.getElementById("alert").innerHTML = `
+             <%- include('Alert/alert', {
+                                alertType: 'error',
+                                alertMessage: 'Invalid Credentials',
+                                isDismissible: true
+                            }) %> `;
+
             console.log("Invalid Credentials");
+            // Optionally add code to clear the input fields after a failed login attempt
+            document.getElementById("email").value = "";
+            document.getElementById("password").value = "";
           }
         } catch (error) {
           console.log(error);
@@ -84,5 +111,7 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+
+    <%-include("footer")-%>
   </body>
 </html>
