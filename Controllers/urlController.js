@@ -71,7 +71,10 @@ export const redirectURL = async (req, res) => {
 
     const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
     const response = await fetch(`http://ip-api.com/json/${ip}`);
-    const ipInfo = await response.json();
+    let ipInfo = {};
+    if (response.ok) {
+      ipInfo = await response.json();
+    }
     const country = ipInfo.country || "Unknown";
     const city = ipInfo.city || "Unknown";
     // Create analytics entry
