@@ -27,6 +27,8 @@
             id="email"
             placeholder="name@example.com"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            oninvalid="this.setCustomValidity('Please enter a valid email address.')"
+            oninput="this.setCustomValidity('')"
             title="Please enter a valid email address"
             required
           />
@@ -39,6 +41,8 @@
             id="password"
             placeholder="Password"
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            oninvalid="this.setCustomValidity('Please enter a valid email address.')"
+            oninput="this.setCustomValidity('')"
             title="Password must contain at least one number, one uppercase and lowercase letter, and at least 8 or more characters"
             required
           />
@@ -48,13 +52,11 @@
         <button
           class="btn btn-primary w-100 py-2"
           type="submit"
-          fdprocessedid="6n5hij"
+        
         >
           Sign in
         </button>
-        <p class="mt-5 mb-3 text-body-secondary">
-          &copy;<%=new Date().getFullYear()%>
-        </p>
+        
       </form>
     </main>
     <script>
@@ -86,7 +88,7 @@
                                 isDismissible: true
                             }) %> `;
             setTimeout(() => {
-              window.location.href = "/";
+              window.location.href = "/page/profile";
             },2000)
           } else {
             document.getElementById("alert").innerHTML = `
