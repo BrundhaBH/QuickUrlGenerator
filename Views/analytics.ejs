@@ -122,7 +122,7 @@
             <div class="container mt-4">
 
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Clicks per Day</h5>
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
@@ -154,7 +154,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -176,7 +176,7 @@
                 const clicksCtx = document.getElementById('clicksChart').getContext('2d');
                 const browserCtx = document.getElementById('browserChart').getContext('2d');
                 const osCtx = document.getElementById('osChart').getContext('2d');
-                const countryCtx = document.getElementById('locationChart').getContext('2d'); // Fixed typo in 'locat`ionChart'
+                // const countryCtx  = document.getElementById('locationChart').getContext('2d'); // Fixed typo in 'locat`ionChart'
                 const referrerCtx = document.getElementById('ReferrerChart').getContext('2d'); // Added referrerCtx
 
                 const fetchAnalytics = async () => {
@@ -249,7 +249,7 @@
                         }
                     });
 
-                    new Chart(countryCtx, {
+                 /*   new Chart(countryCtx, {
                         type: 'bar',
                         data: {
                             labels: countryLabels,
@@ -259,7 +259,7 @@
                                 backgroundColor: 'teal',
                             }]
                         }
-                    });
+                    });*/
 
                     new Chart(referrerCtx, {
                         type: 'bar',

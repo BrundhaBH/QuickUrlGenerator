@@ -23,7 +23,9 @@
               Create short, memorable links in seconds with QuickLink's powerful
               URL shortener.
             </p>
-            <form id="url-form" class="mt-4">
+            <form id="url-form" class="mt-4"
+            onsubmit="shortURL(event)">
+              <div id="alert"></div>
               <div class="input-group mb-3">
                 <input
                   type="url"
@@ -46,6 +48,35 @@
           </div>
         </div>
       </div>
+      <script>
+        const shortURL = async (event) => {
+          event.preventDefault();
+          const token = localStorage.getItem("token");
+          if (!token) {
+            // alert("Please login to shorten URLs");
+            document.getElementById("alert").innerHTML = `
+             <%- include('Alert/alert', {
+                                alertType: 'warning',
+                                alertMessage: 'Please do Login!',
+                                isDismissible: true
+                            }) %>
+                `;
+            setTimeout(() => {
+              window.location.href = "/page/login"; // Redirecting to login
+            }, 2500); // Adding a delay for better user experience
+            return; // Ensuring no further code runs if not authenticated
+          } else {
+            const longUrl = document.getElementById("long-url").value; // Get the URL from the input
+            setTimeout(() => {
+              window.location.href = `/page/url?q=${encodeURIComponent(
+                longUrl
+              )}`; // Redirecting to shorten URL page
+            }, 1000); // Adding a delay for better user experience
+          }
+          return;
+        };
+      </script>
+    </header>
     </header>
 
     <!-- Features Section -->

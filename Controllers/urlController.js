@@ -6,6 +6,19 @@ import Analytics from "../Database/Models/Analytics.js";
 export const shortenURL = async (req, res) => {
   try {
     const user = req.user;
+    const customURL = req.query.customURL;
+  
+    if (customURL) {
+      const existingCustomURL = await URL.findOne({
+        shortURL: customURL,
+        user: user.id,
+      });
+      if (existingCustomURL) {
+        return res
+          .status(400)
+          .json({ customUrlError: "Custom URL is already taken" });
+      }
+    }
     if (!user || !user.id) {
       return res.status(400).json({ message: "User ID is required" });
     }
@@ -17,7 +30,19 @@ export const shortenURL = async (req, res) => {
     if (existingURL) {
       return res.json({ longURL, shortURL: existingURL.shortURL });
     }
-
+    if (customURL) {
+      const newURL = new URL({
+        url: longURL,
+        shortURL: customURL,
+        user: user.id,
+      });
+      await newURL.save();
+      return res.json({
+        longURL: longURL,
+        shortURL: customURL,
+        id: newURL._id,
+      });
+    }
     const shortURL = nanoid(6);
     const newURL = new URL({
       url: longURL,
