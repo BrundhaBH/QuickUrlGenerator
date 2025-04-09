@@ -28,8 +28,10 @@
             class="form-control"
             id="name"
             placeholder="Enter your name"
+            oninvalid="this.setCustomValidity('Please enter a valid email address.')"
+            oninput="this.setCustomValidity('')"
             required
-            autocomplete="username"
+            
           />
           <label for="name">Name</label>
         </div>
@@ -42,9 +44,10 @@
             placeholder="name@example.com"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             title="Please enter a valid email address"
-            fdprocessedid="4i4zra"
+            oninvalid="this.setCustomValidity('Please enter a valid email address.')"
+            oninput="this.setCustomValidity('')"
             required
-            autocomplete="email"
+            
           />
           <label for="email">Email address</label>
         </div>
@@ -53,11 +56,12 @@
             type="password"
             class="form-control"
             id="password"
-            autocomplete="current-password"
+            oninvalid="this.setCustomValidity('Please enter a valid email address.')"
+            oninput="this.setCustomValidity('')"
             placeholder="Password"
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             title="Password must contain at least one number, one uppercase and lowercase letter, and at least 8 or more characters"
-            fdprocessedid="co1ms"
+            
             required
           />
           <label for="password">Password</label>
@@ -66,7 +70,7 @@
         <button
           class="btn btn-primary w-100 py-2"
           type="submit"
-          fdprocessedid="6n5hij"
+          
         >
           Register
         </button>
@@ -74,7 +78,7 @@
       <script>
         setTimeout(() => {
           if (localStorage.getItem('token')) {
-        window.location.href = '/'; // Redirecting to the home page
+        window.location.href = '/page/profile'; // Redirecting to the home page
           }
         }, 1000);
       </script>
